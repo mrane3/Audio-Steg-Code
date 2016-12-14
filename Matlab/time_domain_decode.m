@@ -1,6 +1,7 @@
-clc;
-clear all;
-[data,fs]= audioread('NewAudioWrittenTime.wav');
+function [ascmessage] = time_domain_decode( filename )
+%UNTITLED Summary of this function goes here
+%   Detailed explanation goes here
+[data,fs]= audioread(filename);
 lsbit=16;
 mbit=1;
 messagestreamlength=[];
@@ -15,3 +16,7 @@ messagestream=bitget(int16(intdata(65:messagestreamlength+64)),1);
 %messagestream=flip(messagestream);
 messagebytes=BitstoNBitIntegers(messagestream, 8);
 ascmessage=char(messagebytes)';
+
+
+end
+
